@@ -37,7 +37,38 @@
         //let num = 10369;
        // console.log(num.toString().split('').join(' '));
 
-       alert(`Hello, ${prompt('Hi, what is your name?')}! How are you?`);
+       //alert(`Hello, ${prompt('Hi, what is your name?')}! How are you?`);
+
+   
+
+    let numOrStr = prompt('input number or string');
+    console.log(numOrStr)
+
+  /*if(numOrStr === null) {
+	    console.log('ви скасували')
+    } else if( numOrStr.trim() === '' ) {
+	    console.log('Empty String');
+    } else if ( isNaN( +numOrStr ) ) {
+	    console.log(' number is Ba_NaN')
+    } else {
+	    console.log('OK!')
+    }
+  */
+
+switch (true) {
+	case numOrStr === '':
+		console.log('Empty String');
+		break;
+	case numOrStr === null:
+		console.log('ви скасували');
+		break;
+	case isNaN( +numOrStr ):
+        console.log(' number is Ba_NaN');
+        break;
+	default:
+		console.log('OK!')
+}
+
     </script>
 </body>
 </html>
