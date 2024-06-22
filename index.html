@@ -68,7 +68,7 @@
 	default:
 		console.log('OK!')
 }*/
-
+/*
     //рік народження
     const personYearOfBith = prompt('Вкажіть рік народження');
     if (personYearOfBith === null) {
@@ -123,7 +123,18 @@
          Спорт: ${sport != null ? sport + '. ' + sportmessage: 'Ви не написали'}\n
         `
     )
+*/
 
+    const number = prompt('Enter the 3 digit number').split('');
+    const result = number.filter((el, id) => number.indexOf(el) === id);
+
+    if (result.length == 2) {
+        console.log('Чи є серед цифр цифри однакові? - так є')
+    } else if (result.length == 1) {
+        console.log('Чи правда, що всі цифри однакові? - так')
+    } else if (result.length == 3) {
+        console.log('немає однакових')
+    }
     </script>
 </body>
 </html>
