@@ -149,13 +149,29 @@
         console.log(index * currencyUah);
     }
         */
-       const n = prompt('Введить ціле число');
+      /* const n = prompt('Введить ціле число');
 
        for (let index = 1; index <= 100; index++) {
         if (Math.pow(index, 2) < n) {
             console.log(index)
         }
        }
+        */
+        const n = prompt('введите целое число');
+        let isSimple = true;
+        if (n > 1) {
+            for (let i = 2; i < n; i++) {
+                if (n % i == 0) {
+                    isSimple = false
+                    console.log("Составное число");
+                    break;
+                }
+            }
+            if (isSimple) console.log("Простое число");
+        } else console.log("Число должно быть больше 1");
+            
+
+
     </script>
 </body>
 </html>
