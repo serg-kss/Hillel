@@ -157,7 +157,7 @@
         }
        }
         */
-        const n = prompt('введите целое число');
+        /*const n = prompt('введите целое число');
         let isSimple = true;
         if (n > 1) {
             for (let i = 2; i < n; i++) {
@@ -169,8 +169,26 @@
             }
             if (isSimple) console.log("Простое число");
         } else console.log("Число должно быть больше 1");
-            
+         */
+        const strIn = "Winter is comming";
+        const lettersArr = ['w', 'c', 'r'];
+        const strOut = getNewArr(strIn, lettersArr);
+        console.log(strOut)
+       
+         function getNewArr(data, options) {
 
+            let str = data.toLowerCase().split('');
+
+            for (let i = 0; i < str.length; i++) {
+                for (let a = 0; a < options.length; a++) {
+                    if (str[i] === options[a]) {
+                        delete str[i];
+                    }
+                }
+            }
+            
+            return str.join('');
+         }
 
     </script>
 </body>
