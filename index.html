@@ -226,7 +226,7 @@
        }
             */
 
-        function sum(x) {
+       /* function sum(x) {
             return function (y = 0) {
                 return x + y;
             };
@@ -236,7 +236,33 @@
         const sum_2 = sum(4)(4); //8
         console.log(sum_1);
         console.log(sum_2); 
-        
+        */
+
+        const loopLimit = 10;
+        const condition = 100;
+        const message = 'Please, enter the number that bigger than 100';
+
+        const result = (loopLimit, condition, message) => {
+            
+            let userNumber = prompt(message);
+
+            for (let i = 0; i < loopLimit; i++) {
+                if (isNaN(+userNumber)) {
+                    return userNumber;
+                    break;
+                } else {
+                    if (userNumber < condition) {
+                        userNumber = prompt('try again please');
+                    } else if (userNumber > condition) {
+                        return userNumber;
+                        break;
+                    }
+                }
+            }
+            return userNumber; 
+        }
+
+        console.log(result(loopLimit, condition, message));
   
        
 
