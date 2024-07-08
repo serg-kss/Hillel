@@ -238,7 +238,7 @@
         console.log(sum_2); 
         */
 
-        const loopLimit = 10;
+        /*const loopLimit = 10;
         const condition = 100;
         const message = 'Please, enter the number that bigger than 100';
 
@@ -263,9 +263,33 @@
         }
 
         console.log(result(loopLimit, condition, message));
-  
-       
+  */
+  /*      
+  function sum(x) {
+    let store = 0; 
+    return function a () {
+        store = store + x ;
+    }
+  }
 
+  const a = sum(4)
+  console.log(a(6));
+  console.log(a(8));
+   */
+  let position = 0;
+  
+   let ladder = {
+        up: function () { position++; return this;},
+        down: function () {
+            if (position !== 0 ) {
+                position--; 
+                return this;
+            }
+        },
+        showStep: function () {console.log(position)}
+    };
+    ladder.up().up().down().showStep();
+   
 
     </script>
 </body>
