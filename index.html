@@ -315,6 +315,7 @@ function sumSalaries(department) {
 
 alert(sumSalaries(company)); // 6700
 */
+        /*
         const user = {
             name: "Bob",
             surname: "Travolta",
@@ -323,6 +324,51 @@ alert(sumSalaries(company)); // 6700
             display: () => {console.log(`name: ${user.name}, surname: ${user.surname}, age: ${user.age}, place of living: ${user.place}`)}
         }
         user.display()
+        */
+
+        function NewContact (name, number, email) {
+            this.name = name
+            this.number = number
+            this.email = email 
+        }
+
+        const phone = {
+            contacts: [
+                {
+                    name: 'Alex',
+                    number: '0998990000',
+                    email: 'alex@gmail'
+                },
+                {
+                    name: 'Bob',
+                    number: '0998345000',
+                    email: 'bob@gmail'
+                },
+                {
+                    name: 'Peter',
+                    number: '0998909800',
+                    email: 'peter@gmail'
+                }
+            ],
+            addContact: () => {
+                const newContact = new NewContact(
+                    prompt('Enter the name'),
+                    prompt('Enter the phone'),
+                    prompt('Enter the email')
+                )
+                phone.contacts.push(newContact);
+                console.log(phone.contacts)
+            },
+            findContactByName: (searchName) => {
+                const result = phone.contacts.filter((contact) => contact.name === searchName);
+                if (result.lenght === 0) {
+                    console.log("No matches");
+                } else console.log(result);
+            }
+        };
+        phone.addContact();
+        phone.findContactByName(prompt('Enter the name for the search in contacts:'));
+
     </script>
 </body>
 </html>
