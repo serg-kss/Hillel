@@ -369,12 +369,17 @@ alert(sumSalaries(company)); // 6700
         phone.addContact();
         phone.findContactByName(prompt('Enter the name for the search in contacts:'));
         */
+       /*
        const arr = [1,1,2,2,3,4,5,6,7,7];
        let result = arr.filter((item, index) => {
             return arr.indexOf(item) !== index
         });
         console.log(arr);
         console.log(result);
+        */
+       const arr = [1,2,3,4,5,6,7,8,9,10];
+       const result = arr.filter((el)=> el % 2 === 0)
+       console.log(result)
     </script>
 </body>
 </html>
