@@ -6,7 +6,7 @@
     <title>Homework</title>
 </head>
 <body>
-    <script>
+    <!--<script>
         /*const [name, number, boolean, undr, bigInt, symbl, obj, nl] = [
             'Vasia', 
             10, 
@@ -383,6 +383,7 @@ alert(sumSalaries(company)); // 6700
        console.log(result)
        */
     </script>
+    -->
     <!--
     <div>
         <p class="text" style="color: black;">eijncejncejidcneicn ienciedc ecenc jecedcnenceic</p>
@@ -400,6 +401,7 @@ alert(sumSalaries(company)); // 6700
 
     </script>
     -->
+    <!--
     <div>
         <img class="hookah" src="" alt="hookah">
     </div>
@@ -407,6 +409,30 @@ alert(sumSalaries(company)); // 6700
         const pic = document.getElementsByClassName('hookah');
         const randomNum = Math.floor(Math.random()*10) + 1;
         pic[0].src = `file:///Users/getapple/Desktop/Hillel/asset/hookah-${randomNum}.png`;
+    </script>
+      -->
+    <script>
+
+        const totalRows = 10;
+        const totalTables = 10;
+
+        const table = document.createElement('table');
+        const tBody = table.createTBody();
+        table.createCaption().textContent = `Pifagor table ${totalRows} * ${totalTables}`;
+        
+
+        for (let i = 1; i <= totalRows; i++) {
+            const tr = document.createElement('tr');
+            for (let a = 1; a <= totalTables; a++) {
+                const td = document.createElement('td');
+                td.textContent = i * a;
+                tr.appendChild(td)
+            }
+            tBody.appendChild(tr);
+            
+        }
+        document.body.appendChild(table);
+        
     </script>
 </body>
 </html>
