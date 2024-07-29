@@ -436,6 +436,7 @@ alert(sumSalaries(company)); // 6700
         
     </script>
     -->
+    <!--
     <button id="btn-1">Enter the Website</button>
     <button id="btn-2">Go to Website</button>
 
@@ -457,6 +458,23 @@ alert(sumSalaries(company)); // 6700
             } else alert('click another btn first');
         })
 
+    </script>
+    -->
+
+    <div id="container">
+        <button>Кнопка 1</button>
+        <button>Кнопка 2</button>
+        <button>Кнопка 3</button>
+    </div>
+
+    <script>
+
+        const cont = document.getElementById('container');
+
+        cont.addEventListener('click', (e) => {
+            confirm(`Клікнуто на кнопці: ${e.target.textContent}`);
+        })
+        
     </script>
 </body>
 </html>
