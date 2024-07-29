@@ -411,6 +411,7 @@ alert(sumSalaries(company)); // 6700
         pic[0].src = `file:///Users/getapple/Desktop/Hillel/asset/hookah-${randomNum}.png`;
     </script>
       -->
+     <!--
     <script>
 
         const totalRows = 10;
@@ -433,6 +434,29 @@ alert(sumSalaries(company)); // 6700
         }
         document.body.appendChild(table);
         
+    </script>
+    -->
+    <button id="btn-1">Enter the Website</button>
+    <button id="btn-2">Go to Website</button>
+
+    <script>
+        const enterWebBtn = document.getElementById('btn-1');
+        const goWebBtn = document.getElementById('btn-2');
+        const message = 'Please enter the web url';
+        const baseUrl = 'https://www.'
+        let webUrl = '';
+
+        enterWebBtn.addEventListener('click', () => {
+            webUrl = prompt(message);
+            console.log(webUrl)
+        })
+
+        goWebBtn.addEventListener('click', () => {
+            if (webUrl != '' & webUrl != null) {
+                window.location.href = baseUrl + webUrl;
+            } else alert('click another btn first');
+        })
+
     </script>
 </body>
 </html>
