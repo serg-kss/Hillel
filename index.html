@@ -460,7 +460,7 @@ alert(sumSalaries(company)); // 6700
 
     </script>
     -->
-
+    <!--
     <div id="container">
         <button>Кнопка 1</button>
         <button>Кнопка 2</button>
@@ -474,7 +474,40 @@ alert(sumSalaries(company)); // 6700
         cont.addEventListener('click', (e) => {
             confirm(`Клікнуто на кнопці: ${e.target.textContent}`);
         })
+
+    </script>
+    -->
+    <ul id="list"></ul>
+    <div style="display: flex;">
+        <input type="text" id="input">
+        <button id="btn">Додати</button>
+    </div>
+
+    <script>
+        const list = document.getElementById('list');
+        const enterTask = document.getElementById('input');
+        const addTask = document.getElementById('btn');
+        const btnDeleteMessage = 'Видалити';
+       
         
+        addTask.addEventListener('click', () => {
+            
+            const task = document.createElement('li');
+            task.textContent = enterTask.value;
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = btnDeleteMessage;
+            deleteBtn.setAttribute('class','delete');
+            task.appendChild(deleteBtn);
+            list.appendChild(task);
+            
+        })
+
+        list.addEventListener('click', (e) => {
+            if (e.target.classList == 'delete') {
+                e.target.parentElement.remove();
+            }
+        })
+
     </script>
 </body>
 </html>
