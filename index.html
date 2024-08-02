@@ -477,6 +477,7 @@ alert(sumSalaries(company)); // 6700
 
     </script>
     -->
+    <!--
     <ul id="list"></ul>
     <div style="display: flex;">
         <input type="text" id="input">
@@ -508,6 +509,130 @@ alert(sumSalaries(company)); // 6700
             }
         })
 
+    </script>
+    -->
+    <script>
+
+        const form = document.createElement('form');
+        form.setAttribute('id', 'form');
+        form.style.display = 'flex';
+        form.style.flexDirection = 'column';
+
+        function createFormElement(tag, attrs) {
+            const newElement = document.createElement(tag);
+            addAttrs(newElement, attrs);
+            return newElement;
+        }
+
+        function addAttrs(obj, attrs) {
+            attrs.forEach((el) => obj.setAttribute(el[0], el[1]));
+        }
+
+        const name = createFormElement('input', 
+        [
+            ['id', 'name'],
+            ['type', 'text'],
+            ['name', 'name'],
+            ['placeholder', 'Name']
+        ]);
+
+        const message = createFormElement('textarea',
+        [
+            ['id', 'message'],
+            ['type', 'text'],
+            ['name', 'message'],
+            ['placeholder', 'Message']
+        ]);
+
+        const phone = createFormElement('input',
+        [
+            ['id', 'phone'],
+            ['type', 'text'],
+            ['name', 'phone'],
+            ['placeholder', 'Phone number']
+        ]);
+
+        const email = createFormElement('input',
+        [
+            ['id', 'email'],
+            ['type', 'text'],
+            ['name', 'email'],
+            ['placeholder', 'Email']
+        ]);
+
+        const submitBtn = createFormElement('button',
+        [
+            ['type', 'submit']
+        ]);
+        submitBtn.textContent = 'Send message';
+
+        const formFields = [name, message, phone, email, submitBtn];
+        formFields.forEach((el) => form.appendChild(el));
+        document.body.appendChild(form);
+        
+        form.onsubmit = async (e) => {
+            e.preventDefault();
+            cleanPreviousErrors();
+            const formData = new FormData(form)
+            let data = {};
+
+            for(let [name, value] of formData) {
+                data[name] = value;
+            }
+
+            const [validation, errorArr] = [formValidation(data).result, formValidation(data).errors];
+
+            if (validation) {
+                console.log(data);
+            } else if (!validation){
+                errorArr.forEach((err) => {
+                    const errObj = document.getElementById(err.field);
+                    const errMessage = errObj.insertAdjacentHTML('afterEnd', `<p class = 'error'>${err.message}</p>`); 
+                })
+            };
+        };
+
+        function formValidation(data) {
+            let validation = false;
+            let validationPoints = 0;
+            const validationPointsSuccsess = 4;
+            const nameValidationPoint = '';
+            const messageValidationPoint = 5;
+            const phoneValiditationPoint = '+380';
+            const emailValiditationPoint = '@';
+            let errors = [];
+            
+            if (data.name != nameValidationPoint) {
+                validationPoints ++;
+            } else errors.push({message: 'Validation error: empty name', field: 'name'});
+
+            if (data.message.length >= messageValidationPoint) {
+                validationPoints ++;
+            } else errors.push({message: `Validation error: Has to be more than ${messageValidationPoint} letters`, field: 'message'});
+
+            if (data.phone != '' & data.phone.slice(0,4) == phoneValiditationPoint) {
+                validationPoints ++;
+            } else errors.push({message: `Validation error: Start with ${phoneValiditationPoint}`, field: 'phone'});
+
+            if (data.email.includes(emailValiditationPoint)) {
+                validationPoints ++;
+            } else errors.push({message: `Validation error: Has include ${emailValiditationPoint}`, field: 'email'});
+    
+            if (validationPoints === validationPointsSuccsess) {
+                validation = true;
+                return {result: validation, errors: null};
+            } else return {result: validation, errors: errors};
+        }
+
+        function cleanPreviousErrors() {
+            const errors = document.getElementsByClassName('error');
+                    if (errors.length > 0 & errors != null) {
+                        for (let err of errors) {
+                            err.remove();  
+                        }
+                    }
+        }
+   
     </script>
 </body>
 </html>
